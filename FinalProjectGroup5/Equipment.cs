@@ -8,14 +8,20 @@ namespace FinalProjectGroup5;
 
 public abstract class Equipment
 {
-    // Data field
+    // Data fields for the equipment class
     private string name;
     private bool fixStatus = false;
     private decimal hourlyRate;
     private decimal dailyRate;
     private int reservationPeriod;
     private decimal hourlyFine;
+    private int serialNumber;
 
+    //property to set the serial number
+    public int SerialNumber
+    {
+        get { return serialNumber; } { serialNumber = value; }
+    }
     // Property to get or set the value of the Name field
     public string Name
     {
