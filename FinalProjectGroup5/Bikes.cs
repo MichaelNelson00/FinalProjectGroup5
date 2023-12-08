@@ -8,7 +8,19 @@ namespace FinalProjectGroup5
 {
     public class Bikes : Land
     {
-        private decimal hourlyRate = 15;
+        // These are the data fields unique to the bike class.
+        private decimal hourlyRate = 8;
         private decimal dailyRate = 50;
-    }
+
+        /*properties to access the hourlyRate and dailyRate datafields.
+          No setters as we do not want these to change*/
+        public decimal HourlyRate
+        {
+            get { return hourlyRate;}
+        }
+
+        public decimal DailyRate
+        {
+            get { return dailyRate; }
+        }
 }
