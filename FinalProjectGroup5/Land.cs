@@ -8,6 +8,15 @@ namespace FinalProjectGroup5
 {
     public abstract class Land : Equipment
     {
-        private decimal hourlyFine = 8;
+        //data fields for all children of the land class, maximum reservation is 7 days
+        private int maxDaysReserved = 7;
+
+        //property to get the max days reserved, no setter as this variable is constant
+
+        public int MaxDaysReserved
+        {
+            get { return maxDaysReserved; }
+
+        }
     }
 }

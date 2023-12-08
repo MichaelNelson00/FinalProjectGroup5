@@ -12,6 +12,8 @@ public abstract class Equipment
     private string name;
     private bool fixStatus = false;
     private int serialNumber;
+    private decimal flatCharge = 20;
+    private decimal hourlyFine = 8;
 
     //property to set the serial number
     public int SerialNumber
@@ -30,7 +32,17 @@ public abstract class Equipment
         get { return fixStatus; }
         set { fixStatus = value; }
         }
-   
-        // Properties to get or set the values of the various data fields
+    // Property to get the flat charge, no setter because the value will not be changed
+    public decimal FlatCharge
+    {
+        get { return flatCharge; }
+    }
+
+    //Property to get hourlyFine, no setter as we want this value to be constant
+
+    public decimal HourlyFine
+    {
+        get { return hourlyFine; }
+    }
        
 }
