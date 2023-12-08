@@ -11,16 +11,15 @@ public abstract class Equipment
     // Data fields for the equipment class
     private string name;
     private bool fixStatus = false;
-    private decimal hourlyRate;
-    private decimal dailyRate;
-    private int reservationPeriod;
-    private decimal hourlyFine;
     private int serialNumber;
+    private decimal flatCharge = 20;
+    private decimal hourlyFine = 8;
 
-    //property to set the serial number
+    //property to get and set the serial number
     public int SerialNumber
     {
-        get { return serialNumber; } { serialNumber = value; }
+        get { return serialNumber; } 
+        set { serialNumber = value; }
     }
     // Property to get or set the value of the Name field
     public string Name
@@ -34,29 +33,17 @@ public abstract class Equipment
         get { return fixStatus; }
         set { fixStatus = value; }
         }
-   
-        // Properties to get or set the values of the various data fields
-        public decimal HourlyRate
-        {
-            get { return hourlyRate; }
-            set { hourlyRate = value; }
-        }
+    // Property to get the flat charge, no setter because the value will not be changed
+    public decimal FlatCharge
+    {
+        get { return flatCharge; }
+    }
 
-        public decimal DailyRate
-        {
-            get { return dailyRate; }
-            set { dailyRate = value; }
-        }
+    //Property to get hourlyFine, no setter as we want this value to be constant
 
-        public int ReservationPeriod
-        {
-            get { return reservationPeriod; }
-            set { reservationPeriod = value; }
-        }
-
-        public decimal HourlyFine
-        {
-            get { return hourlyFine; }
-            set { hourlyFine = value; }
-        }
+    public decimal HourlyFine
+    {
+        get { return hourlyFine; }
+    }
+       
 }
