@@ -23,4 +23,11 @@ public class Kayak : Water
     {
         get { return dailyRate; }
     }
+
+    // constructor for Kayak class, takes a string variable and an integer as parameters
+    public Kayak(string name, int serialnumber)
+    {
+        Name = name;
+        SerialNumber = serialnumber;
+    }
 }

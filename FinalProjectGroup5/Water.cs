@@ -17,5 +17,4 @@ public abstract class Water : Equipment
     {
         get { return maxDaysReserved; }
     }
-
 }

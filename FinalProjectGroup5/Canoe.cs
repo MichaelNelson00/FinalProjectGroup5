@@ -23,4 +23,10 @@ public class Canoe : Water
     {
         get { return dailyRate; }
     }
+    // constructor for Canoe class, takes a string variable and an integer as parameters
+    public Canoe(string name, int serialnumber)
+    {
+        Name = name;
+        SerialNumber = serialnumber;
+    }
 }
