@@ -18,4 +18,5 @@ public abstract class Land : Equipment
         get { return maxDaysReserved; }
 
     }
+}
    
