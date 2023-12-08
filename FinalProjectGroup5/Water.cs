@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProjectGroup5
+namespace FinalProjectGroup5;
+
+public abstract class Water : Equipment
 {
-    public class Tents : Land
-    {
-        private decimal dailyRate = 20;
-        
-    }
+
 }

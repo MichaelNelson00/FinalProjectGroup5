@@ -8,6 +8,6 @@ namespace FinalProjectGroup5
 {
     public abstract class Land : Equipment
     {
-
+        private decimal hourlyFine = 8;
     }
 }
