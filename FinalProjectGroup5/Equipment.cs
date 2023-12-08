@@ -11,7 +11,7 @@ public abstract class Equipment
     // Data fields for the equipment class
     private string name;
     private bool fixStatus = false;
-    private int serialNumber;
+    public int serialNumber;
     private decimal flatCharge = 20;
     private decimal hourlyFine = 8;
 
