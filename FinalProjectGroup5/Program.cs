@@ -1,10 +1,9 @@
-﻿namespace FinalProjectGroup5
+﻿namespace FinalProjectGroup5;
+
+public class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello, World!");
-        }
+       
     }
 }

@@ -4,23 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FinalProjectGroup5
+namespace FinalProjectGroup5;
+
+public class Tents : Land
+    
 {
-    public class Tents : Land
-        
+    // the data fields for the tents class, only a dailyrate as hourly doesn't make sense
+
+    private decimal dailyRate = 20;
+
+    //property to get the dailyrate for tents, no setter as we want the value to be constant
+    public decimal DailyRate
     {
-        // the data fields for the tents class, only a dailyrate as hourly doesn't make sense
-
-        private decimal dailyRate = 20;
-
-        //property to get the dailyrate for tents, no setter as we want the value to be constant
-        public decimal DailyRate
-        {
-            get { return dailyRate; }
-        }
+        get { return dailyRate; }
     }
 
-   
-
+    // constructor for tents class, takes a string variable and an integer as parameters
+    public Tents(string name, int serialnumber)
+    {
+        Name = name;
+        SerialNumber = serialnumber;
+    }
 
 }
+
+

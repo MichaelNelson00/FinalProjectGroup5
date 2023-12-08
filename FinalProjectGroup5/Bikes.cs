@@ -23,4 +23,12 @@ namespace FinalProjectGroup5
         {
             get { return dailyRate; }
         }
+
+        // constructor for bikes class, takes a string variable and an integer as parameters
+        public Bikes(string name, int serialnumber)
+        {
+            Name = name;
+            SerialNumber = serialnumber;
+        }
+    }
 }

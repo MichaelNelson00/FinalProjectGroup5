@@ -23,4 +23,12 @@ public class Tube : Water
     {
         get { return dailyRate; }
     }
+
+    // constructor for tube class, takes a string variable and an integer as parameters
+    public Tube(string name, int serialnumber)
+    {
+        Name = name;
+        SerialNumber = serialnumber;
+    }
 }
+

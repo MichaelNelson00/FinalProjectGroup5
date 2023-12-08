@@ -15,10 +15,11 @@ public abstract class Equipment
     private decimal flatCharge = 20;
     private decimal hourlyFine = 8;
 
-    //property to set the serial number
+    //property to get and set the serial number
     public int SerialNumber
     {
-        get { return serialNumber; } set { serialNumber = value; }
+        get { return serialNumber; } 
+        set { serialNumber = value; }
     }
     // Property to get or set the value of the Name field
     public string Name

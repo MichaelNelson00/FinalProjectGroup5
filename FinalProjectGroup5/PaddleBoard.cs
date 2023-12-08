@@ -22,4 +22,10 @@ public class PaddleBoard : Water
     {
         get { return dailyRate; }
     }
+    // constructor for paddleboard class, takes a string variable and an integer as parameters
+    public PaddleBoard(string name, int serialnumber)
+    {
+        Name = name;
+        SerialNumber = serialnumber;
+    }
 }
