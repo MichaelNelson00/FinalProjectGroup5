@@ -2,13 +2,15 @@ using System;
   
 public class Reservation 
 { 
-    // Data points 
+    // Data points for the reservation class
+    public int ReservatonId { get; set; }
     public string CreditCardInfo { get; set; } 
     public DateTime DueDate { get; set; } 
     public decimal OverdueFines { get; set; } 
     public decimal DamageFees { get; set; } 
     public int TimesRenewed { get; set; } 
     public DateTime? DateReturned { get; set; } 
+    public DateTime StartDate {  get; set; }   
   
     // Constructor 
     public Reservation(string creditCardInfo, DateTime dueDate) 
