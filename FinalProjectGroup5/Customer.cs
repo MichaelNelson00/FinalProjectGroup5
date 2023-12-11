@@ -3,13 +3,15 @@ namespace FinalProjectGroup5;
 
 public class Customer
 {
+    //datafields for the customer class
     private int customerID;
     private string fullName;
     private string address;
     private int phoneNumber;
     private string dateofBirth;
-    private List<serialNumber> ReservedItems = new List<serialNumber>;
+    private List<int> reservedItems = new List<int>();
 
+    //constructor for the customer class
     public Customer(int customerid, string fullname, string Address, int phonenumber, string dateofbirth)
     {
         this.customerID = customerid;
@@ -18,20 +20,20 @@ public class Customer
         this.phoneNumber = phonenumber;
         this.dateofBirth = dateofbirth;
     }
-
-    public List<serialNumber> ItemsReserved()
+    
+    public List<int> ReservedItems(int customerID)
     {
-        return ReservedItems;
+        return reservedItems;
     }
 
-    public decimal OverdueFines()
+    public decimal OverdueFines(Customer customerID)
     {
-
+        return Reservation.OverdueFines;
     }
 
-    public void Reserve(serialNumber item, DateTime startDate, int durationHours)
+    public void Reserve(int serialNumber, DateTime startDate, int durationHours)
     {
-
+        reservedItems.Add(serialNumber);
     }
 
     public void Request(serialNumber item)
