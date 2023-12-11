@@ -27,11 +27,11 @@ public class CustomerReserved
         }
 
         // Constructor to initialize the data fields
-        public CustomerReserved(Customer customer, Equipment equipment, Reservation reservationID)
+        public CustomerReserved(Customer customer, Equipment equipment, Reservation reservation)
         {
             this.customer = customer;
             this.equipment = equipment;
-            this.reservationID = reservationID;
+            this.reservationID = reservation;
         }
 
 }
