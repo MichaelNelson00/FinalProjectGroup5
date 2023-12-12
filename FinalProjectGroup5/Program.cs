@@ -1,4 +1,6 @@
-﻿namespace FinalProjectGroup5;
+﻿using System;
+
+namespace FinalProjectGroup5;
 
 public class Program
 {
@@ -189,18 +191,22 @@ public class Program
             return;
         }
 
+        var customerReservations = customerReserved
+            .Where(cr => cr.Customer.Username == authenticatedCustomer.Username);
 
-        var ReservationList = customerReserved.Where(o => o.Customer.Username == authenticatedCustomer.Username);
-
-        if (ReservationList.Count() == 0)
+        if (customerReservations.Count() == 0)
         {
             Console.WriteLine("0 reservations found.");
         }
         else
         {
-            foreach (var reservation in ReservationList)
+            Console.WriteLine("Current Reservations:");
+            foreach (var customerReservation in customerReservations)
             {
-                Console.WriteLine(reservation.ReservationID);
+                Console.WriteLine($"Reservation ID: {customerReservation.ReservationID}");
+                Console.WriteLine($"Equipment: {customerReservation.Equipment.Name}");
+                Console.WriteLine($"Start Date: {customerReservation.StartDate}");
+                Console.WriteLine("---------------");
             }
         }
     }
