@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.InteropServices;
+
 namespace FinalProjectGroup5;
 
 public class Customer
@@ -7,12 +9,35 @@ public class Customer
     private int customerID;
     private string fullName;
     private string address;
-    private int phoneNumber;
+    private long phoneNumber;
     private string dateofBirth;
     private List<int> reservedItems = new List<int>();
 
+    public string DateofBirth
+    {
+        get { return dateofBirth; }
+        set { dateofBirth = value; }
+    }
+    public long PhoneNumber
+    {
+        get { return phoneNumber; }
+        set { phoneNumber = value; }
+    }
+    public string Address
+    {
+        get { return address; }
+        set { address = value; }
+    }
+    public string FullName
+    {
+        get { return fullName; }
+        set { fullName = value; }
+    }
+    public string Username {  get; set; }
+    public string Password { get; set; }
+
     //constructor for the customer class
-    public Customer(int customerid, string fullname, string Address, int phonenumber, string dateofbirth)
+    public Customer(int customerid, string fullname, string Address, long phonenumber, string dateofbirth)
     {
         this.customerID = customerid;
         this.fullName = fullname;
@@ -26,30 +51,12 @@ public class Customer
         return reservedItems;
     }
 
-    public decimal OverdueFines(Customer customerID)
-    {
-        return Reservation.OverdueFines;
-    }
-
     public void Reserve(int serialNumber, DateTime startDate, int durationHours)
     {
         reservedItems.Add(serialNumber);
     }
 
-    public void Request(serialNumber item)
-    {
-
-    }
-
-    public DateTime WhenDue(serialNumber item)
-    {
-
-    }
-
-    public decimal DamageFees(serialNumber item)
-    {
-
-    }
+    //no arg constructor for the Customer class
     public Customer()
     {
 

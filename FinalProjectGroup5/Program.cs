@@ -2,8 +2,8 @@
 
 public class Program
 {
-    private static Customer customers;
-    private static List<Reservation> reserved;
+    private static Customers customers;
+    private static List<Reservation> reservations;
     private static List<CustomerReserved> customerReserved;
     private static Customer authenticatedCustomer;
 
@@ -21,9 +21,19 @@ public class Program
         var c2 = new Customer(002, "Billy Bob", "1510 W Wells St, Milwaukee WI, 53233", 1345678901, "10/11/1995");
         var c3 = new Customer(003, "Charles Coakley", "1210 Friday St, Brookfield WI, 53005", 1897520340, "06/15/1988");
 
-        var r1 = new Reservation(237892469104819, new DateTime(12,30,2023,12,00,00), 2000);
-        var r2 = new Reservation(423705720757890, new DateTime(12,28,2023,3,30,00), 2001);
-        var r3 = new Reservation(237025347802544, new DateTime(01,03,2024,1,00,00), 2002);
+        c1.Username = "AlbertApple01";
+        c1.Password = "1234";
+
+        c2.Username = "BillyBob01";
+        c2.Password = "abcd";
+
+        c3.Username = "CharlesCoakley";
+        c3.Password = "qwerty";
+
+
+        var r1 = new Reservation(237892469104819, new DateTime(2023,12,30,12,00,00), 2000);
+        var r2 = new Reservation(423705720757890, new DateTime(2023,12,28,15,30,00), 2001);
+        var r3 = new Reservation(237025347802544, new DateTime(2024,01,03,13,00,00), 2002);
 
         var b1 = new Bikes("B1", 100);
         var b2 = new Bikes("B2", 101);
@@ -43,22 +53,28 @@ public class Program
         var tub1 = new Tube("TUB1", 600);
         var tub2 = new Tube("TUB2", 601);
 
+        
         var cr1 = new CustomerReserved(c1,b1,r1);
         var cr2 = new CustomerReserved(c2, k2, r2);
         var cr3 = new CustomerReserved(c3, tub1, r3);
 
-        customers = new Customer();
-        customers.customer.Add(c1);
+        customerReserved = new List<CustomerReserved>();
+
+
+        customers = new Customers();
+        customers.customers.Add(c1);
         customers.customers.Add(c2);
+        customers.customers.Add(c3);
 
-        
-        appointments.Add(a1);
-        appointments.Add(a2);
-        appointments.Add(a3);
+       
+        customerReserved.Add(cr1);
+        customerReserved.Add(cr3);
+        customerReserved.Add(cr2);
 
-        customerAppointments.Add(ca1);
-        customerAppointments.Add(ca2);
-        customerAppointments.Add(ca3);
+        reservations = new List<Reservation>();
+        reservations.Add(r1);
+        reservations.Add(r2);
+        reservations.Add(r3);
 
 
     }
@@ -69,7 +85,7 @@ public class Program
 
         while (!done)
         {
-            Console.WriteLine("Options: Login: 1 --- Logout: 2 --- Sign Up: 3 --- Appointments: 4 --- Clear Screen: c --- Quit: q ---");
+            Console.WriteLine("Options: Login: 1 --- Logout: 2 --- Sign Up: 3 --- Reservations: 4 --- Clear Screen: c --- Quit: q ---");
             Console.Write("Choice: ");
             string choice = Console.ReadLine();
             switch (choice)
@@ -84,7 +100,7 @@ public class Program
                     SignUpMenu();
                     break;
                 case "4":
-                    GetCurrentAppointmentsMenu();
+                    GetCurrentReservationsMenu();
                     break;
                 case "c":
                     Console.Clear();
@@ -113,7 +129,7 @@ public class Program
             authenticatedCustomer = customers.Authenticate(username, password);
             if (authenticatedCustomer != null)
             {
-                Console.WriteLine($"Welcome {authenticatedCustomer.FirstName}");
+                Console.WriteLine($"Welcome {authenticatedCustomer.FullName}");
             }
             else
             {
@@ -134,21 +150,28 @@ public class Program
 
     static void SignUpMenu()
     {
-        Console.Write("First Name: ");
-        string firstName = Console.ReadLine();
-        Console.Write("Last Name: ");
-        string LastName = Console.ReadLine();
+        Console.Write("Enter your full name: ");
+        string fullName = Console.ReadLine();
         Console.Write("Username: ");
         string username = Console.ReadLine();
         Console.Write("Password: ");
         string password = Console.ReadLine();
+        Console.Write("Enter your address:");
+        string address = Console.ReadLine() ;
+        Console.Write("Enter your phone number with no dashes:");
+        long phoneNumber = Convert.ToInt64(Console.ReadLine());
+        Console.WriteLine("Enter your date of birth:");
+        string dob = Console.ReadLine();
 
         var newCustomer = new Customer
         {
-            FirstName = firstName,
-            LastName = LastName,
+            FullName = fullName,
             Username = username,
-            Password = password
+            Password = password,
+            Address = address,
+            PhoneNumber = phoneNumber,
+            DateofBirth = dob
+            
         };
 
         customers.customers.Add(newCustomer);
@@ -158,7 +181,7 @@ public class Program
     }
 
 
-    static void GetCurrentAppointmentsMenu()
+    static void GetCurrentReservationsMenu()
     {
         if (authenticatedCustomer == null)
         {
@@ -167,17 +190,17 @@ public class Program
         }
 
 
-        var appointmentList = customerAppointments.Where(o => o.customer.Username == authenticatedCustomer.Username);
+        var ReservationList = customerReserved.Where(o => o.Customer.Username == authenticatedCustomer.Username);
 
-        if (appointmentList.Count() == 0)
+        if (ReservationList.Count() == 0)
         {
-            Console.WriteLine("0 appointment found.");
+            Console.WriteLine("0 reservations found.");
         }
         else
         {
-            foreach (var appointmnet in appointmentList)
+            foreach (var reservation in ReservationList)
             {
-                Console.WriteLine(appointmnet.appointment.date);
+                Console.WriteLine(reservation.ReservationID);
             }
         }
     }

@@ -57,27 +57,5 @@ public class Reservation
         return (decimal)overdueDuration.TotalDays * overdueRatePerDay; 
     } 
 } 
-  
-class Program 
-{ 
-    static void Main() 
-    { 
-        // Example usage 
-        Reservation reservation = new Reservation("1234-5678-9012-3456", DateTime.Now.AddDays(7)); 
-  
-        reservation.Renew(); 
-  
-        DateTime returnDate = DateTime.Now.AddDays(10); 
-        reservation.Return(returnDate); 
-  
-        reservation.ReportDamage(20.0m); 
-  
-        Console.WriteLine($"Credit Card Info: {reservation.CreditCardInfo}"); 
-        Console.WriteLine($"Due Date: {reservation.DueDate}"); 
-        Console.WriteLine($"Overdue Fines: {reservation.OverdueFines:C}"); 
-        Console.WriteLine($"Damage Fees: {reservation.DamageFees:C}"); 
-        Console.WriteLine($"Times Renewed: {reservation.TimesRenewed}"); 
-        Console.WriteLine($"Date Returned: {reservation.DateReturned}"); 
-    } 
-} 
+ 
 

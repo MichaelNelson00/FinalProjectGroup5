@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 namespace FinalProjectGroup5;
@@ -24,6 +25,11 @@ public class CustomerReserved
         {
             get { return equipment; }
             set { equipment = value; }
+        }
+
+        public Reservation ReservationID
+        {
+        get { return reservationID; }
         }
 
         // Constructor to initialize the data fields
