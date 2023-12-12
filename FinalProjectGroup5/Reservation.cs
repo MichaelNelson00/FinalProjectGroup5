@@ -13,10 +13,11 @@ public class Reservation
     public DateTime StartDate {  get; set; }   
   
     // Constructor 
-    public Reservation(long creditCardNum, DateTime dueDate,int reservationId) 
+    public Reservation(long creditCardNum, DateTime startDate,int reservationId) 
     { 
         CreditCardNum = creditCardNum; 
-        DueDate = dueDate; 
+        StartDate = startDate;
+        DueDate = startDate.AddDays(5);
         ReservationId = reservationId;
         OverdueFines = 0.0m; 
         DamageFees = 0.0m; 

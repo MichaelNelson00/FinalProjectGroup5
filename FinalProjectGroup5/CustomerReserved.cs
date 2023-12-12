@@ -12,10 +12,11 @@ public class CustomerReserved
         // Data fields
         private Customer customer;
         private Equipment equipment;
-        private Reservation reservationID;
+        private int  reservationID;
+        private DateTime startdate;
 
-        // Properties to access the data fields
-        public Customer Customer
+    // Properties to access the data fields
+    public Customer Customer
         {
             get { return customer; }
             set { customer = value; }
@@ -27,17 +28,22 @@ public class CustomerReserved
             set { equipment = value; }
         }
 
-        public Reservation ReservationID
+        public int ReservationID
         {
         get { return reservationID; }
         }
+         public DateTime StartDate
+    {
+        get { return startdate; }
+    }
 
-        // Constructor to initialize the data fields
-        public CustomerReserved(Customer customer, Equipment equipment, Reservation reservation)
+    // Constructor to initialize the data fields
+    public CustomerReserved(Customer customer, Equipment equipment, Reservation reservation)
         {
             this.customer = customer;
             this.equipment = equipment;
-            this.reservationID = reservation;
+            this.reservationID = reservation.ReservationId;
+            this.startdate = reservation.StartDate;
         }
 
 }
